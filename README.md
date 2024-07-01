@@ -1,5 +1,8 @@
 # Sisense Chatbot Customization Demo
 
+![ChatBot](https://github.com/StevePuma/chatbot-customization/assets/102320035/4f18d19b-207e-422b-83b8-c58e7f525bf0)
+
+
 This project showcases the customization options for the Sisense chatbot using dropdowns to update the ThemeSettings provided by the Sisense Compose SDK.
 
 ## Getting Started
