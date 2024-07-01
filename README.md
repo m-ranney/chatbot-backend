@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# Sisense Chatbot Customization Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project showcases the customization options for the Sisense chatbot using dropdowns to update the ThemeSettings provided by the Sisense Compose SDK.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+To run this application, ensure you have the following installed:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Node.js (v14.x or later)
+- npm (v6.x or later)
+- @sisense/sdk-ui: 1.13.0
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Installation
 
-### `npm test`
+1. Clone the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```sh
+   git clone https://github.com/yourusername/sisense-chatbot-demo.git
+   cd sisense-chatbot-demo
+   ```
 
-### `npm run build`
+2. Install the necessary packages:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```sh
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Configuration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To configure the application, you need to update the `SisenseContextProvider` in the `index.tsx` file with your Sisense server URL and API token.
 
-### `npm run eject`
+1. Open `src/index.tsx`.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. Locate the `SisenseContextProvider` component and update the following fields:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```tsx
+   <SisenseContextProvider
+     serverUrl="YOUR_SISENSE_SERVER_URL"
+     apiToken="YOUR_SISENSE_API_TOKEN"
+   >
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Running the Application
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To start the application, run:
 
-## Learn More
+```sh
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Chatbot Customization
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```tsx
+
+  const defaultThemeSettings = getDefaultThemeSettings();
+  
+  const [themeSettings, setThemeSettings] = useState<ThemeSettings>({
+    ...defaultThemeSettings,
+    aiChat: {
+      ...defaultThemeSettings.aiChat,
+      backgroundColor: '#ffffff',
+      primaryTextColor: '#000000',
+      borderRadius: '4px',
+    },
+  });
+
+```
+
+```tsx
+        <ThemeProvider theme={themeSettings}>
+          {chatbotVisible && (
+            <Chatbot
+              width={400}
+              height={700}
+            />
+          )}
+        </ThemeProvider>
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
