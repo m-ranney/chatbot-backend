@@ -1,28 +1,20 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { SisenseContextProvider } from "@sisense/sdk-ui";
-import { AiContextProvider } from "@sisense/sdk-ui/ai";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import App from './App';
+import SignIn from './pages/login'; 
+import { AuthProvider } from './authcontext';
 
-const sisenseContextProviderArgs = {
-  url: "",
-  token:
-    "",
-};
-
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement,
-);
-root.render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <SisenseContextProvider {...sisenseContextProviderArgs}>
-      <AiContextProvider>
-        <App />
-      </AiContextProvider>
-    </SisenseContextProvider>
-  </React.StrictMode>,
+    <BrowserRouter>
+      <AuthProvider>
+          <Routes>
+            <Route path="/login" element={<SignIn />} />
+            <Route path="/*" element={<App />} />
+            <Route path="*" element={<Navigate to="/login" />} />
+          </Routes>
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
-
-reportWebVitals();
