@@ -20,7 +20,7 @@ const App = () => {
   }
 
   return (
-    <SisenseContextProvider url={"https://sisenseurl.com"} token={token}>
+    <SisenseContextProvider url={"https://sapienceai.openai.azure.com/"} token={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjY4NjkzYmMwNzc2MTcwMDFkNWMyNWQxIiwiYXBpU2VjcmV0IjoiMzUxMTMtMzk4NC0wQjE5LTI5NkItOTQxOC00NDg0LTlBRTktMUFCRC01IiwiYWxsb3dlZFRlbmFudHMiOlsiNjY4NjkzYmMwNzc2MTcwMDFkNWMyNWRlIl0sInRlbmFudElkIjoiNjY4NjkzYmMwNzc2MTcwMDFkNWMyNWRlIiwiZXhwIjoxNzMwNDc4Njc3fQ.RuorXafaIU9Pn6UDEZDAPzvKPWw9Vzi28Nr123XRSb0"}>
       <AiContextProvider>
         <Routes>
           <Route path="/chatbot" element={<ChatbotComponent />} />

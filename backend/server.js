@@ -12,7 +12,10 @@ const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 
-// Updated CORS configuration to allow Codespaces origin
+const path = require("path");
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 const allowedOrigins = [
   "http://localhost:3000",
   "https://haunted-crypt-q9g456wgr5r39ppx-3000.app.github.dev",
