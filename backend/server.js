@@ -12,26 +12,10 @@ const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 
-const path = require("path");
-
 app.use(express.static(path.join(__dirname, 'public')));
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://haunted-crypt-q9g456wgr5r39ppx-3000.app.github.dev",
-  "https://github.dev"
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin, like mobile apps or curl requests
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: "*", // Allow all origins (for testing purposes only)
   credentials: true
 }));
 
