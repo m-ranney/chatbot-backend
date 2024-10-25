@@ -11,7 +11,26 @@ const port = process.env.PORT || 5000;
 // THIS BACKEND IS FOR SAMPLE EMBEDDING ONLY! THIS IS NOT PRODUCTION AUTHENTICATION, PLEASE DO NOT REPLICATE THIS FOR PRODUCTION EMBEDDING  
 
 app.use(bodyParser.json());
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+
+// Updated CORS configuration to allow Codespaces origin
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://haunted-crypt-q9g456wgr5r39ppx-3000.app.github.dev",
+  "https://github.dev"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin, like mobile apps or curl requests
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+}));
 
 function buildJwt(email, firstName, lastName, sharedSecret) {
   const jti = uuid.v4();
