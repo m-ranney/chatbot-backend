@@ -11,7 +11,7 @@ const port = process.env.PORT || 5000;
 // THIS BACKEND IS FOR SAMPLE EMBEDDING ONLY! THIS IS NOT PRODUCTION AUTHENTICATION, PLEASE DO NOT REPLICATE THIS FOR PRODUCTION EMBEDDING  
 
 app.use(bodyParser.json());
-app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(cors({ origin: "*", credentials: true }));
 
 function buildJwt(email, firstName, lastName, sharedSecret) {
   const jti = uuid.v4();
