@@ -19,7 +19,7 @@ const App = () => {
   }
 
   return (
-    <SisenseContextProvider url={"https://sapiencebi-dev-us-ai-poc-azure.sapienceanalytics.com"} token={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjZmZjlkOGFlNGY2ZGQwMDFjZDk2MjJlIiwiYXBpU2VjcmV0IjoiZGY4YzdhZDYtNzZiNS1lOGY2LTllNjAtZTIyY2YwN2VjOTliIiwiYWxsb3dlZFRlbmFudHMiOlsiNjZmZjlkOGJlNGY2ZGQwMDFjZDk2MjNiIl0sInRlbmFudElkIjoiNjZmZjlkOGJlNGY2ZGQwMDFjZDk2MjNiIiwiZXhwIjoxNzMxODgzNDQzfQ.-XxgUw4Wi_1cXj_YvGe8BqQnhI_dMW2c6ySuFiZ9egs"}>
+    <SisenseContextProvider url={"https://sapiencebi-dev-us-ai-poc-azure.sapienceanalytics.com"} token={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjZmZjlkOGFlNGY2ZGQwMDFjZDk2MjJlIiwiYXBpU2VjcmV0IjoiZGY4YzdhZDYtNzZiNS1lOGY2LTllNjAtZTIyY2YwN2VjOTliIiwiYWxsb3dlZFRlbmFudHMiOlsiNjZmZjlkOGJlNGY2ZGQwMDFjZDk2MjNiIl0sInRlbmFudElkIjoiNjZmZjlkOGJlNGY2ZGQwMDFjZDk2MjNiIiwiZXhwIjoxNzMzMjQ3NTUzfQ.kNowtKgINdWP1f-ziGOPn_j00qQcuN4WY6juIkQ5nZY"}>
       <AiContextProvider>
         <Routes>
           <Route path="/chatbot" element={<ChatbotComponent />} />
